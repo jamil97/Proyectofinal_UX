@@ -15,9 +15,18 @@ if(!empty($_POST)){
 			if($user_id==null){
 				print "<script>alert(\"Acceso invalido.\");window.location='../login.php';</script>";
 			}else{
-				session_start();
-				$_SESSION["user_id"]=$user_id;
-				print "<script>window.location='../home.php';</script>";				
+				if($_POST["username"]=="admin"){
+					session_start();
+					$_SESSION["user_id"]=$user_id;
+					print "<script>window.location='../php/formulario.php';</script>";
+
+				}else{
+					session_start();
+					$_SESSION["user_id"]=$user_id;
+					print "<script>window.location='../home.php';</script>";
+
+				}
+							
 			}
 		}
 	}
